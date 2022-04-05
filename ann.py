@@ -142,8 +142,10 @@ class ANN:
         dW -- Gradient of the cost with respect to W (current layer l), same shape as W
         db -- Gradient of the cost with respect to b (current layer l), same shape as b
         """
-
-
+        prev_A, W, b = cache
+        dW = np.matmul(dZ, prev_A.transpose())
+        db = dZ
+        # TODO: dA_prev
 
     @staticmethod
     def linear_activation_backward(dA, cache, activation):
