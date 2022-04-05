@@ -129,11 +129,10 @@ class ANN:
         eps = 1e-8
         mean = np.mean(A, axis=0)
         var = np.sum((A-mean) ** 2, axis=0) / A.shape[-1]
-        NA = A - mean / (np.sqrt(var + eps, 2))
+        NA = (A - mean) / (np.sqrt(var + eps))
         # What about the learnable parameters?
         return NA
 
-    @staticmethod
     def Linear_backward(dZ, cache):
         """
         Implements the linear part of the backward propagation process for a single layer
@@ -143,7 +142,8 @@ class ANN:
         dW -- Gradient of the cost with respect to W (current layer l), same shape as W
         db -- Gradient of the cost with respect to b (current layer l), same shape as b
         """
-        
+
+
 
     @staticmethod
     def linear_activation_backward(dA, cache, activation):
